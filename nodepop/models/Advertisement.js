@@ -11,6 +11,12 @@ const advertisementSchema = mongoose.Schema({
     tags: [String]
 });
 
+// list of ads
+advertisementSchema.statics.list = function() {
+  const query = Advertisement.find();
+  return query.exec();
+}
+
 // we create the model
 const Advertisement = mongoose.model('Advertisement', advertisementSchema);
 

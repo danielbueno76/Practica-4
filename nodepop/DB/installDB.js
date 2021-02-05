@@ -11,8 +11,7 @@ conn.once('open', async () => {
         console.log('The initialization of the database has been successfully.')
         conn.close();
     } catch (err) {
-        console.error('There was an error:
-        ', err);
+        console.error('There was an error:', err);
         process.exit(1);
     }
 });
