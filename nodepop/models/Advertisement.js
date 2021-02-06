@@ -4,16 +4,20 @@ const mongoose = require('mongoose')
 
 // we define a schema for our document
 const advertisementSchema = mongoose.Schema({
-  name: String,
-  sale: Boolean,
-  price: Number,
+  name: { type: String, index: true },
+  sale: { type: Boolean, index: true },
+  price: { type: Number, index: true },
   photo: String,
-  tags: [String]
+  tags: [{ type: String, index: true }]
 })
 
 // list of ads
-advertisementSchema.statics.list = function () {
-  const query = Advertisement.find()
+advertisementSchema.statics.list = function (filtro, limit, skip, fields, sort) {
+  const query = Advertisement.find(filtro)
+  query.limit(limit)
+  query.skip(skip)
+  query.select(fields)
+  query.sort(sort)
   return query.exec()
 }
 
