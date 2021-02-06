@@ -35,3 +35,4 @@ Desarrollar el API que se ejecutará en el servidor de un servicio de venta de a
 4. ?limit=1 = Te muestra 1 anuncio.
 5. ?start=0 = Te muestra a partir del primer anuncio.
 6. ?sort=price = Ordena los anuncios por precio.
+7. ?sale=false = Tipo de anuncio. Si es false es de búsqueda y si es true es de venta.
