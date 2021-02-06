@@ -14,7 +14,7 @@ router.get('/', async function (req, res, next) {
     const sale = req.query.sale
     const tag = req.query.tag
     const limit = parseInt(req.query.limit)
-    const skip = parseInt(req.query.skip)
+    const start = parseInt(req.query.start)
     const fields = req.query.fields
     const sort = req.query.sort
     const filtro = {}
@@ -46,7 +46,7 @@ router.get('/', async function (req, res, next) {
       filtro.tags = { $in: tag }
     }
 
-    const result = await Ad.list(filtro, limit, skip, fields, sort)
+    const result = await Ad.list(filtro, limit, start, fields, sort)
     res.json(result)
   } catch (err) {
     next(err)
